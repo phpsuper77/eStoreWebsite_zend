@@ -1,0 +1,38 @@
+<table id="main-menu" cellpadding="0" cellspacing="0" style="width: 96%; margin-left: 2%;">
+    <tr>
+        <td style="padding: 10px 0 10px;">
+            <a href="/" class="umenu" <?php if (empty($this->current_page)): ?>style="text-decoration:underline;" <?php endif; ?>>Inicio</a>&nbsp;&nbsp;&nbsp;
+            <a href="/regalos" class="umenu" <?php if ($this->current_page == 'gift'): ?>style="text-decoration:underline;" <?php endif; ?>>Los Regalos</a>&nbsp;&nbsp;&nbsp;
+            <a href="/historia" class="umenu" <?php if ($this->current_page == 'history'): ?>style="text-decoration:underline;" <?php endif; ?>>La Historia</a>&nbsp;&nbsp;&nbsp;
+            <?php if(!empty($this->user)): ?>
+                <a href="/index/myaccount" class="umenu" <?php if ($this->current_page == 'myaccount'): ?>style="text-decoration:underline;" <?php endif; ?>>Mi Givenchy</a>
+            <?php endif; ?>
+        </td>
+        <td style="padding: 0 0 0 40px;" align="right" >
+        <?php if(empty($this->user)): ?>
+            <a href="/registrarse" class="umenu" <?php if ($this->current_page == 'register'): ?>style="text-decoration:underline;" <?php endif; ?>>Registrarse</a>&nbsp;&nbsp;&nbsp;&nbsp;<a href="/entrar" class="umenu" <?php if ($this->current_page == 'login'): ?>style="text-decoration:underline;" <?php endif; ?>>Entrar</a></td>    
+        <?php else: ?>
+            <a href="/registrarse" class="umenu"><?=$this->user->nombre?>. Su cuenta</a>.&nbsp;&nbsp; <a href="/entrar/logout" class="umenu">Salir</a>  </td>
+        <?php endif; ?>
+       </tr>
+</table>
+<div id="mobile-menu">
+    <a id="mobile-menu-tab" href="javascript:;"><?=$this->page_title?></a>
+    <div class="mobile-menu-wrapper">
+        <ul>
+            <li><a href="/" class="umenu">Inicio</a></li>
+            <li><a href="/regalos" class="umenu">Regalos</a></li>
+            <li><a href="/historia" class="umenu">Historia</a></li>
+            <?php if(!empty($this->user)): ?>
+            <li><a href="/index/myaccount" class="umenu">Mi Givenchy</a></li>
+            <?php endif; ?>
+            <?php if(empty($this->user)): ?>
+            <li><a href="/registrarse" class="umenu">Registrarse</a></li>
+            <li><a href="/entrar" class="umenu">Entrar</a></li>
+            <?php else: ?>
+            <li><a href="/registrarse" class="umenu"><?=$this->user->nombre?>. Su cuenta</a></li>
+            <li><a href="/entrar/logout" class="umenu">Salir</a></li>
+            <?php endif; ?>
+        </ul>
+    </div>
+</div>

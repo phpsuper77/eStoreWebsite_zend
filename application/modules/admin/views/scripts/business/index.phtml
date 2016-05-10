@@ -1,0 +1,63 @@
+<div class="subtitle">
+    &gt;&gt; BUSINESS
+</div>
+<table id="table"
+       data-toggle="table"
+       data-toolbar="#toolbar"               
+       data-click-to-select="true"
+       data-pagination="true"
+       data-search="true"
+       data-sort-name="id"
+       data-sort-order="desc"
+       data-url="/admin/business/getbusiness">
+    <thead>
+    <tr>
+        <th data-field="id" data-sortable="true">ID</th>
+        <th data-field="state" data-checkbox="true" data-sortable="true"></th>        
+        <th data-field="name" data-sortable="true">Name</th>
+        <th data-field="city" data-sortable="true">City</th>
+        <th data-field="owner" data-sortable="true">Owner</th>
+        <th data-field="enable">Enable</th>
+    </tr>
+    </thead>
+</table>
+
+<script>
+    var $table = $('#table'),
+        $create_button = $('#leftside-creat');
+        $edit_button = $('#leftside-edit');
+        $delete_button = $('#leftside-delete');
+
+    $(function () {
+        $create_button.click(function () {
+            window.location='/admin/busienss/create';
+        });
+        $edit_button.click(function () {
+            var selected_list = $table.bootstrapTable('getSelections');
+            
+            var s = selected_list.length;
+            if(s == 1)
+            {
+                var id = selected_list[0].id;
+                window.location='/admin/busienss/edit?id=' + id;
+            }
+            
+        });
+        $delete_button.click(function () {
+            var selected_list = $table.bootstrapTable('getSelections');
+            
+            var s = selected_list.length;
+            if(s>0){
+                var str = "";
+                for(var i=0;i<s;i++)
+                {
+                    var id = selected_list[i].id;
+                    str = str + id + ",";                
+                }
+                str = str.slice(0,-1);
+                //alert(str);
+                window.location='/admin/busienss/delete?ids=' + str;
+            }
+        });
+    });
+</script>

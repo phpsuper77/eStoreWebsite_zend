@@ -1,0 +1,81 @@
+<!doctype html>
+<head>
+	
+	<?php echo $this->headTitle() ?> 
+    <?php echo $this->headMeta() ?>
+
+	<meta http-equiv="Content-Type" content="text/html;charset=utf-8" />
+
+	<meta name="keywords" content="givenchy" />	
+	<meta name="description" content="GIVENCHY THE CLUB" />
+	<meta name="robots" content="noindex, nofollow" />
+
+	<?php 
+		$this->headLink()                                  
+            
+            ->prependStylesheet($this->baseUrl().'/css/style_admin.css')
+            ->prependStylesheet($this->baseUrl().'/css/admin_estilo.css')
+            ->prependStylesheet($this->baseUrl().'/css/assets/examples.css')
+            ->prependStylesheet($this->baseUrl().'/css/assets/bootstrap-table/src/bootstrap-table.css')
+            ->prependStylesheet($this->baseUrl().'/css/assets/bootstrap/css/bootstrap.min.css');
+            
+
+		$this->headScript()                                                       
+            ->prependFile($this->baseUrl().'/js/assets/bootstrap-table/src/bootstrap-table.js')
+            ->prependFile($this->baseUrl().'/js/assets/bootstrap/js/bootstrap.min.js')
+            ->prependFile($this->baseUrl().'/js/jquery-1.11.2.min.js');
+
+        echo $this->headLink();
+        echo $this->headScript();                               
+    ?>
+    
+
+    <script type="text/javascript">
+    	var baseUrl = '<?= json_encode($this->baseUrl()); ?>';
+    </script>
+
+
+</head>
+
+<body style="margin: 0 auto;">
+<div id="header_admin">
+    <?php echo $this->partial("admin/header_admin.phtml"); ?>
+</div>
+
+<div id="menu_admin">
+    <?php echo $this->partial('admin/menu_admin.phtml', array('current_module' => $this->current_module));?>        
+</div>
+
+<div id="content"> 
+    <div class="left-sidebar" id="left_window_admin">
+        <?php echo $this->partial('admin/left_window_admin.phtml', 
+            array('current_module' => $this->current_module, 'current_action' => $this->current_action)); ?>
+    </div>
+    <div class="main-content">
+        <?php echo $this->layout()->content; ?>    
+    </div>
+
+</div>
+<div class="clear" style="
+    content: '';
+    clear: both;
+    float: none;
+"></div>
+<!--
+<div id="footer_admin">
+    <?php echo $this->partial("admin/footer_admin.phtml");?>
+</div>
+-->    
+
+<script type="text/javascript">
+$(document).ready(function(){
+  $.getScript('//cdn.datatables.net/1.10.1/js/jquery.dataTables.js',function(){
+  $.getScript('//cdn.datatables.net/plug-ins/725b2a2115b/integration/bootstrap/3/dataTables.bootstrap.js',function(){
+      console.log(1);
+     $('#example').dataTable({pageSize: 50});
+  });
+});
+});
+</script>
+</body> 
+</html>

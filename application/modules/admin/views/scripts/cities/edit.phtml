@@ -1,0 +1,147 @@
+<style>
+.form-horizontal .control-label {
+    padding-top: 10px;
+}
+</style>
+
+<?php //var_dump($this->cityinfo); exit; ?>
+<div class="create_form" style="margin-top: 30px; width: 500px;">
+<form class="form-horizontal" action="/admin/cities/editresult" id="editcity_form">
+    <input type="hidden" name="id" value="<?php echo $_REQUEST['id'];?>">
+    <div class="form-group">
+        <label for="inputEmail3" class="col-sm-4 control-label">City</label>
+        <div class="col-sm-8">
+            <input type="text" name="city" class="form-control" placeholder="City" value="<?=$this->cityinfo["city"] ?>">
+        </div>
+    </div>
+    
+    <div class="form-group">
+        <label for="inputEmail3" class="col-sm-4 control-label">Email</label>
+        <div class="col-sm-8">
+            <input type="email" name="email" class="form-control" id="email" placeholder="Email" value="<?=$this->cityinfo["email"] ?>">
+        </div>
+    </div>
+    
+    <div class="form-group">
+        <label for="inputEmail3" class="col-sm-4 control-label">Administrator</label>
+        <div class="col-sm-8">
+            <select class="form-control" name="administrator">
+                <?php  
+                    foreach($this->adminList as $admin){ ?>
+                    <option value="<?=$admin["admin_id"] ?>" <? if($admin["admin_id"]==$this->cityinfo["admin"]) echo "selected"; ?>> <?=$admin["administrator"] ?> </option>
+                <?php } ?>
+            </select>
+        </div>
+    </div>
+    
+    
+    <div class="form-group">
+        <label for="inputEmail3" class="col-sm-4 control-label">Country</label>
+        <div class="col-sm-8">
+            <select class="form-control" name="country">
+                <?php  
+                    foreach($this->countryList as $country){ ?>
+                    <option value="<?=$country["country_id"] ?>" <? if($country["country_id"]==$this->cityinfo["country"]) echo "selected"; ?>> <?=$country["country"] ?> </option>
+                <?php } ?>
+            </select>
+        </div>
+    </div>
+    
+    <div class="form-group">
+        <label for="inputEmail3" class="col-sm-4 control-label">Currency</label>
+        <div class="col-sm-8">
+            <select class="form-control" name="currency">
+                <option value="Select">Please select</option>
+                <option value="USD" <?php if($this->cityinfo["currency"] == "USD") echo "selected"; ?>>U.S. Dollar</option>
+                <option value="EUR" <?php if($this->cityinfo["currency"] == "EUR") echo "selected"; ?>>Euro</option>
+                <option value="MXN" <?php if($this->cityinfo["currency"] == "MXN") echo "selected"; ?>>Mexican Peso</option>
+                <option value="AUD" <?php if($this->cityinfo["currency"] == "AUD") echo "selected"; ?>>Australian Dollar</option>
+                <option value="BRL" <?php if($this->cityinfo["currency"] == "BRL") echo "selected"; ?>>Brazilian Real</option>
+                <option value="CAD" <?php if($this->cityinfo["currency"] == "CAD") echo "selected"; ?>>Canadian Dollar</option>
+                <option value="CZK" <?php if($this->cityinfo["currency"] == "CZK") echo "selected"; ?>>Czech Koruna</option>
+                <option value="DKK" <?php if($this->cityinfo["currency"] == "DKK") echo "selected"; ?>>Danish Krone</option>
+                <option value="HKD" <?php if($this->cityinfo["currency"] == "HKD") echo "selected"; ?>>Hong Kong Dollar</option>
+                <option value="HUF" <?php if($this->cityinfo["currency"] == "HUF") echo "selected"; ?>>Hungarian Forint</option>
+                <option value="ILS" <?php if($this->cityinfo["currency"] == "ILS") echo "selected"; ?>>Israeli New Sheqel</option>
+                <option value="JPY" <?php if($this->cityinfo["currency"] == "JPY") echo "selected"; ?>>Japanese Yen</option>
+                <option value="MYR" <?php if($this->cityinfo["currency"] == "MYR") echo "selected"; ?>>Malaysian Ringgit</option>
+                <option value="NOK" <?php if($this->cityinfo["currency"] == "NOK") echo "selected"; ?>>Norwegian Krone</option>
+                <option value="NZD" <?php if($this->cityinfo["currency"] == "NZD") echo "selected"; ?>>New Zealand Dollar</option>
+                <option value="PHP" <?php if($this->cityinfo["currency"] == "PHP") echo "selected"; ?>>Philippine Peso</option>
+                <option value="PLN" <?php if($this->cityinfo["currency"] == "PLN") echo "selected"; ?>>Polish Zloty</option>
+                <option value="GBP" <?php if($this->cityinfo["currency"] == "GBP") echo "selected"; ?>>Pound Sterling</option>
+                <option value="SGD" <?php if($this->cityinfo["currency"] == "SGD") echo "selected"; ?>>Singapore Dollar</option>
+                <option value="SEK" <?php if($this->cityinfo["currency"] == "SEK") echo "selected"; ?>>Swedish Krona</option>
+                <option value="CHF" <?php if($this->cityinfo["currency"] == "CHF") echo "selected"; ?>>Swiss Franc</option>
+                <option value="TWD" <?php if($this->cityinfo["currency"] == "TWD") echo "selected"; ?>>Taiwan New Dollar</option>
+                <option value="THB" <?php if($this->cityinfo["currency"] == "THB") echo "selected"; ?>>Thai Baht</option>
+                <option value="TRY" <?php if($this->cityinfo["currency"] == "TRY") echo "selected"; ?>>Turkish Lira</option>
+            </select>
+        </div>
+    </div>
+    
+    <div class="form-group">
+        <label for="inputEmail3" class="col-sm-4 control-label">GA Tracking ID</label>
+        <div class="col-sm-8">
+            <input type="text" name="ga_id" class="form-control" placeholder="GA Tracking ID">
+        </div>
+    </div>
+    
+    <div class="form-group">
+        <label for="inputEmail3" class="col-sm-4 control-label">Zone</label>
+        <div class="col-sm-8">
+            <select class="form-control" name="zone">
+                <option value="" selected=""></option>
+                <option value="America/Phoenix" <?php if($this->cityinfo["timezone"] == "America/Phoenix") echo "selected" ?>>Arizona (GMT-07:00)</option>
+                <option value="America/Halifax" <?php if($this->cityinfo["timezone"] == "America/Halifax") echo "selected" ?>>Atlantic Time (Canada) (GMT-04:00)</option>
+                <option value="America/Bogota" <?php if($this->cityinfo["timezone"] == "America/Bogota") echo "selected" ?>>Bogota (GMT-05:00)</option>
+                <option value="America/Sao_Paulo" <?php if($this->cityinfo["timezone"] == "America/Sao_Paulo") echo "selected" ?>>Brasilia (GMT-03:00)</option>
+                <option value="America/Argentina/Buenos_Aires" <?php if($this->cityinfo["timezone"] == "America/Argentina/Buenos_Aires") echo "selected" ?>>Buenos Aires (GMT-03:00)</option>
+                <option value="America/Caracas" <?php if($this->cityinfo["timezone"] == "America/Caracas") echo "selected" ?>>Caracas (GMT-04:30)</option>
+                <option value="America/Tegucigalpa" <?php if($this->cityinfo["timezone"] == "America/Tegucigalpa") echo "selected" ?>>Central America (GMT-06:00)</option>
+                <option value="America/Chicago" <?php if($this->cityinfo["timezone"] == "America/Chicago") echo "selected" ?>>Central Time (US &amp; Canada) (GMT-06:00)</option>
+                <option value="America/Chihuahua" <?php if($this->cityinfo["timezone"] == "America/Chihuahua") echo "selected" ?>>Chihuahua (GMT-07:00)</option>
+                <option value="America/New_York" <?php if($this->cityinfo["timezone"] == "America/New_York") echo "selected" ?>>Eastern Time (US &amp; Canada) (GMT-05:00)</option>
+                <option value="Pacific/Fiji" <?php if($this->cityinfo["timezone"] == "Pacific/Fiji") echo "selected" ?>>Fiji (GMT+12:00)</option>
+                <option value="America/Godthab" <?php if($this->cityinfo["timezone"] == "America/Godthab") echo "selected" ?>>Greenland (GMT-03:00)</option>
+                <option value="Pacific/Honolulu" <?php if($this->cityinfo["timezone"] == "Pacific/Honolulu") echo "selected" ?>>Hawaii (GMT-10:00)</option>
+                <option value="America/Indiana/Indianapolis" <?php if($this->cityinfo["timezone"] == "America/Indiana/Indianapolis") echo "selected" ?>>Indiana (East) (GMT-05:00)</option>
+                <option value="Kwajalein" <?php if($this->cityinfo["timezone"] == "Kwajalein") echo "selected" ?>>International Date Line West (GMT-12:00)</option>
+                <option value="America/La_Paz" <?php if($this->cityinfo["timezone"] == "America/La_Paz") echo "selected" ?>>La Paz (GMT-04:00)</option>
+                <option value="America/Lima" <?php if($this->cityinfo["timezone"] == "America/Lima") echo "selected" ?>>Lima (GMT-05:00)</option>
+                <option value="Europe/Madrid" <?php if($this->cityinfo["timezone"] == "Europe/Madrid") echo "selected" ?>>Madrid (GMT+01:00)</option>
+                <option value="America/Manaus" <?php if($this->cityinfo["timezone"] == "America/Manaus") echo "selected" ?>>Manaus (GMT-04:00)</option>
+                <option value="America/Mazatlan" <?php if($this->cityinfo["timezone"] == "America/Mazatlan") echo "selected" ?>>Mazatlan (GMT-07:00)</option>
+                <option value="America/Mexico_City" <?php if($this->cityinfo["timezone"] == "America/Mexico_City") echo "selected" ?>>Mexico City (GMT-06:00)</option>
+                <option value="America/Monterrey" <?php if($this->cityinfo["timezone"] == "America/Monterrey") echo "selected" ?>>Monterrey (GMT-06:00)</option>
+                <option value="America/Montevideo" <?php if($this->cityinfo["timezone"] == "America/Montevideo") echo "selected" ?>>Montevideo (GMT-03:00)</option>
+                <option value="America/Denver" <?php if($this->cityinfo["timezone"] == "America/Denver") echo "selected" ?>>Mountain Time (US &amp; Canada) (GMT-07:00)</option>
+                <option value="Europe/Netherlands" <?php if($this->cityinfo["timezone"] == "Europe/Netherlands") echo "selected" ?>>Netherlands (GMT+01:00)</option>
+                <option value="America/St_Johns" <?php if($this->cityinfo["timezone"] == "America/St_Johns") echo "selected" ?>>Newfoundland (GMT-03:30)</option>
+                <option value="America/Los_Angeles" <?php if($this->cityinfo["timezone"] == "America/Los_Angeles") echo "selected" ?>>Pacific Time (US &amp; Canada) (GMT-08:00)</option>
+                <option value="Europe/Paris" <?php if($this->cityinfo["timezone"] == "Europe/Paris") echo "selected" ?>>Paris (GMT+01:00)</option>
+                <option value="America/Rio_Branco" <?php if($this->cityinfo["timezone"] == "America/Rio_Branco") echo "selected" ?>>Rio Branco (GMT-05:00)</option>
+                <option value="America/Santiago" <?php if($this->cityinfo["timezone"] == "America/Santiago") echo "selected" ?>>Santiago (GMT-04:00)</option>
+                <option value="America/Regina" <?php if($this->cityinfo["timezone"] == "America/Regina") echo "selected" ?>>Saskatchewan (GMT-06:00)</option>
+                <option value="America/Tijuana" <?php if($this->cityinfo["timezone"] == "America/Tijuana") echo "selected" ?>>Tijuana, Baja California (GMT-08:00)</option>
+
+            </select>
+        </div>
+    </div>
+    
+</form>
+</div>
+
+<script>
+    var $save_button = $('#leftside-save');
+    var $cancel_button = $('#leftside-cancel');
+        
+    $(function () {
+        $save_button.click(function () {
+            document.getElementById("editcity_form").submit();
+        });
+        $cancel_button.click(function () {
+            window.location='/admin/cities';
+        });        
+    });
+</script>

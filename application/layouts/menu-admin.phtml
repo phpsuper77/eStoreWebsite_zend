@@ -1,0 +1,28 @@
+<table id="main-menu" cellpadding="0" cellspacing="0" style="width: 96%; margin-left: 2%;">
+    <tr>
+        <td><a href="/admin/productos" class="menu <?php if($this->current_page=="product") { echo "active"; }?>">PRODUCTOS</a></td>
+        <td><a href="/admin/clientes" class="menu <?php if($this->current_page=="client") { echo "active"; }?>">CLIENTES</a></td>
+        <td class="admin_menu"><a href="/admin/vendedores" class="menu <?php if($this->current_page=="vendedores") { echo "active"; }?>">VENDEDORES</a></td>
+        <td><a href="/admin/ventas" class="menu <?php if($this->current_page=="ventas") { echo "active"; }?>">VENTAS</a></td>
+        <td class="admin_menu"><a href="/admin/centros" class="menu <?php if($this->current_page=="center") { echo "active"; }?>">CENTROS</a></td>
+        <td><a href="/admin/regalos" class="menu <?php if($this->current_page=="regalos") { echo "active"; }?>">REGALOS</a></td>
+        <td class="admin_menu"><a href="/admin/pedidos" class="menu <?php if($this->current_page=="pedidos") { echo "active"; }?>">PEDIDOS</a></td>
+        <td class="admin_menu"><a href="/admin/segmentacion" class="menu <?php if($this->current_page=="segmentacion") { echo "active"; }?>">SEGMENTACION</a></td>
+        <td></td>
+    </tr>
+</table>
+<div id="mobile-menu">
+    <a id="mobile-menu-tab" href="javascript:;"><?=$this->page_title?></a>
+    <div class="mobile-menu-wrapper">
+        <ul>
+            <li><a href="/admin/productos" class="umenu">PRODUCTOS</a></li>
+            <li><a href="/admin/clientes" class="umenu">CLIENTES</a></li>
+            <li class="admin_menu"><a href="/admin/vendedores" class="umenu">VENDEDORES</a></li>
+            <li><a href="/admin/ventas" class="umenu">VENTAS</a></li>
+            <li class="admin_menu"><a href="/admin/centros" class="umenu">CENTROS</a></li>
+            <li><a href="/admin/regalos" class="umenu">REGALOS</a></li>
+            <li class="admin_menu"><a href="/admin/pedidos" class="umenu">PEDIDOS</a></li>
+            <li class="admin_menu"><a href="/admin/segmentacion" class="umenu">SEGMENTACION</a></li>
+        </ul>
+    </div>
+</div>

@@ -1,0 +1,33 @@
+<table width="100%">
+<tr style="background-color:#CCCCCC"><td>Producto</td><td>Centro</td><td>Importe</td><td>Cantidad</td><td>Descuento</td><td>Puntos</td><td>Fecha</td><td>Precio Original</td><td>Borrar</td></tr>
+ <?php if ( !empty($this->ventas) ): ?>
+    <?php foreach ( $this->ventas as $venta ): ?>
+       <tr>
+        <td><?=$venta['product_name']?></td>
+        <td><?=$venta['idcentro']?></td>
+        <td align="center"><?=$venta['precio']?></td>
+        <td align="center"><?=$venta['cantidad']?></td>
+        <td align="center"><?=$venta['descuento']?></td>
+        <td align="center"><?=$venta['puntos']?></td>
+        <td align="center"><?=$venta['fecha']?></td>
+        <td align="center"><?=$venta['precio_marcado']?></td>
+        <td><input type="button" name="borrar" value="ERROR"  class="boton_text button" onclick="borra_venta(<?=$venta['idventa']?>,<?=$this->client->idcliente?>,2);" /><input type="button" name="borrar" value="DEVOLUCI&Oacute;N" class="boton_text" onclick="borra_venta(<?=$venta['idventa']?>,<?=$this->client->idcliente?>,3);" /></td>
+       </tr>
+    <?php endforeach; ?>
+     <tr><td colspan="9"><hr /></td></tr>
+                    <tr>
+                        <td ></td>
+                        <td ></td>
+                        <td colspan="3" align="right"><strong>TOTAL PUNTOS :</strong></td>
+
+                        <td align="center"><strong><?=$this->puntos?></strong></td>
+                        <td align="center"></td>
+                        <td align="center"></td>
+                        
+                        <td></td>
+                       </tr>
+</table>
+<?php else: ?>    
+<tr><td colspan="9">NO TIENE NING&Uacute;N PRODUCTO EN EL LISTADO DE COMPRAS </td></tr>
+<?php endif; ?>
+</table>

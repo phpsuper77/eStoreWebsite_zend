@@ -1,0 +1,138 @@
+<form name="plus_productos" action="" method="post">
+<input type="hidden" name="idcliente"  value="<?=$this->client->idcliente?>"/>
+<tr><td colspan="4" >
+    <table width="100%">
+        <tr>
+            <td align="center" width="37%" nowrap="nowrap"><div id="menu_activo"><span class="menu">FICHA CLIENTE</span></div></td>
+            <td align="center" width="18%" nowrap="nowrap"><div id="menu_inactivo"><span class="menu"><a href="javascript:openModal(<?=$this->client->idcliente?>);" class="menu">EDITAR CLIENTE</a></span></div></td>
+            <td align="center" width="18%" nowrap="nowrap"><div id="menu_inactivo"><a href="javascript:cargarFragmento('/admin/clientes/ventas?id=<?=$this->client->idcliente?>','capa_ventana');" class="menu">VENTAS CLIENTE</a></span></div></td>
+            <td align="center" width="18%" nowrap="nowrap"><div id="menu_inactivo"><span class="menu"><a href="javascript:openModal_regalos(<?=$this->client->idcliente?>);" class="menu">REGALOS</a><span style=" color:#F00;"><?=$this->puntos>=15 ? "&iexcl;DISPONIBLE!" : ""?></span></span></div></td>
+            <td width="20"><a href="javascript:closeModal();"><img src="/images/x.png"  border="0" /></a></td>
+        </tr>
+    </table>
+</td></tr>
+    <tr>
+        <td colspan="2">
+            <table style="padding:5px; margin:5px; border:1px solid #ccc;" width="98%">
+                <tr><td colspan="3" align="left" style="font-size:18px;"><strong><?=$this->client->nombre?> <?=$this->client->apellidos?>( <?=$this->puntos?> )</strong> </td></tr>
+                <tr>
+                    <td valign="top"  width="33%">
+                        <table>
+                            <tr><td><strong>Datos cliente</strong></td></tr>
+                            <tr><td align="left">D1: <?=$this->client->direccion?></td></tr>
+                            <tr><td align="left">D2: <?=$this->client->direccion2?></td></tr>
+                            <tr><td align="left"> <?=$this->client->cp?>&nbsp;<?=$this->client->ciudad?></td></tr>
+                            <tr><td align="left"> Telf.: <?=$this->client->telefono?> - <?=$this->client->movil?></td></tr>
+                            <tr><td align="left"> Fecha nacimiento : <?=$this->client->fecha_nacimiento?></td></tr>
+                            <tr><td align="left"> DNI: <?=$this->client->dni?></td></tr>
+                            <tr><td align="left">
+                                <?=$this->client->idcentro==0 ? "SIN CENTRO" : $this->client->centro->centro?>
+                            </td></tr>
+                        </table>
+                    </td>
+                    <td valign="top" width="33%">
+                        <table>
+                            <tr><td><strong>Ficha t&eacute;cnica</strong></td></tr>
+                            <tr><td>Sexo:</td></tr>
+                            <tr><td>Edad : 
+                            <?php /*
+                            edad =rs(12)
+                            if  edad > 0 then
+                                response.write int(year(now)) - int(rs(12))
+                            else
+                                response.write "SIN DEFINIR"
+                            end if  */?>
+                            </td></tr>
+                            <tr><td>
+                            Tipo de piel : <select>
+                                <option></option>
+                                <option value="Seca">Seca</option>
+                                <option value="Grasa">Grasa</option>
+                                <option value="Mixta">Mixta</option>
+                            </select>
+                            </td></tr>
+                        </table>
+                    
+                    </td>
+                    <td valign="top" width="33%">
+                        <table>
+                            <tr><td><strong>Notas:</strong></td></tr>
+                            <tr><td><textarea style="width:250px; height:120px; border:1px solid #ccc;">
+                            </textarea></td></tr>
+                        </table>
+                    
+                    </td>
+                </tr>
+            </table>
+        </td>
+    </tr>
+    <tr>
+        <td>
+<table width="100%">
+<tr><td colspan="6">Historial de compra:</td></tr>
+<tr style="background-color:#CCCCCC"><td>EAN</td><td>Producto</td><td>Fecha</td><td>Importe</td><td>Centro ECI</td><td>Consejera</td></tr>
+
+ <?php foreach ( $this->ventas as $venta ): ?>
+    <tr>
+        <td><?=$venta['cod_ean']?></td>
+        <td><?=$venta['product_name']?></td>
+        <td><?=$venta['fecha']?></td>
+        <td><?=$venta['precio']?></td>
+        <td align="center"><?=$venta['centro']?></td>
+        <td align="center"><?=$venta['vendor']?></td>
+       </tr>
+     <tr><td colspan="9"><hr /></td></tr>
+<?php endforeach; ?>
+    
+        </table>    
+        
+        </td>
+    </tr>
+    <tr>
+        <td>
+<table width="100%">
+<tr><td colspan="6">Solicitar regalo:</td></tr>
+<tr style="background-color:#CCCCCC"><td></td><td colspan="2"><strong>REGALO</strong></td><td><strong>PUNTOS</strong></td><td></td></tr>
+
+    <tr><td colspan="5"><?=$this->puntos?><hr /></td></tr>
+<?php if ( !empty($this->premios) ): ?>
+    <?php foreach ( $this->premios as $premio ): ?> 
+        <tr><td></td><td colspan="2"><strong><?=$premio->premio?></strong></td><td><strong><?=$premio->puntos?></strong></td>
+        <?php if ($premio->puntos > $this->puntos && $this->puntos > 0): ?>
+            </tr><tr><td colspan="5"><hr /></td></tr>
+        <?php else: ?>
+            <td><input type="button" name="pedir" id="pedir" class="boton_text button" value="PEDIR" onclick="javascript:openModal_regalos_pedir(<?=$this->client->idcliente?>,<?=$premio->idpremio?>,<?=$premio->puntos?>);"></td></tr><tr><td colspan="5"><hr /></td></tr>
+        <?php endif; ?>
+    <?php endforeach; ?>
+<?php endif; ?>
+
+
+
+<tr><td colspan="6"><hr /></td></tr>
+<tr style="background-color:#CCCCCC"><td colspan="5"><strong>Hist&oacute;rico de regalos:</strong></td></tr>
+<tr style="background-color:#CCCCCC"><td></td><td><strong>REGALO</strong></td><td><strong>PUNTOS</strong></td><td><strong>FECHA</strong></td><td></td></tr>
+<?php foreach ( $this->orders as $order ): ?>
+    <tr><td></td><td><strong><?=$order["premio"]?></strong></td><td><strong><?=$order["puntos"]?></strong></td>
+    <td><?=$order["fecha"]?></td>
+    <td>
+    <?php if ( $order['estado'] == 4 ): ?> 
+        ENVIADO
+    <?php else: ?>
+        <input type="button" name="borrar" value="ERROR"  class="boton_text button" onclick="borra_pedido(<?=$order['idventa']?>,<?=$this->client->idcliente?>,2);" />
+        <input type="button" name="borrar" value="DEVOLUCI&Oacute;N" class="boton_text button" onclick="borra_pedido(<?=$order['idventa']?>,<?=$this->client->idcliente?>,3);" />
+        <input type="button" name="borrar" value="ENVIADO" class="boton_text button" onclick="borra_venta(<?=$order['idventa']?>,<?=$this->client->idcliente?>,4);" />
+    <?php endif; ?>
+    </td></tr>
+    <tr><td colspan="5"><hr /></td></tr>    
+<?php endforeach; ?>
+    
+        </table>    
+        
+        </td>
+    </tr>
+    
+    
+    
+    
+    
+</table>

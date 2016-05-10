@@ -1,0 +1,99 @@
+<div class="mainleft"> 
+    <div id="leftcol">
+        
+        <?php
+        $current_module = $this->current_module;
+        $current_action = $this->current_action; 
+               
+        
+        if($current_module == "home")
+        {
+            
+        }
+        else if($current_module == "cities") 
+        {            
+            if( $current_action == "index") {
+        ?>
+            <div class="panel-group" id="accordion" style="margin-left: 10px; margin-right: 10px;">
+                <div class="panel panel-default">
+                    <div class="panel-heading" id="leftside-creat" style="cursor: pointer;">                    
+                            Create City
+                    </div>                
+                </div>
+                <div class="panel panel-default" >
+                    <div class="panel-heading" id="leftside-edit" style="cursor: pointer;">                    
+                            Edit City
+                    </div>
+                </div>
+                <div class="panel panel-default" >
+                    <div class="panel-heading" id="leftside-delete" style="cursor: pointer;">                    
+                            Delete City
+                    </div>
+                </div>
+            </div>
+        
+        <?php
+            }
+            else if(( $current_action == "create") || ($current_action == "edit")) {
+        ?>
+            <div class="panel-group" id="accordion" style="margin-left: 10px; margin-right: 10px;">
+                <div class="panel panel-default">
+                    <div class="panel-heading" id="leftside-save" style="cursor: pointer;">                    
+                            Save
+                    </div>                
+                </div>
+                <div class="panel panel-default" >
+                    <div class="panel-heading" id="leftside-cancel">                    
+                            Cancel
+                    </div>
+                </div>                
+            </div>        
+        <?php        
+            }
+        }
+        else if($current_module == "business") 
+        {            
+            if( $current_action == "index") {
+        ?>
+            <div class="panel-group" id="accordion" style="margin-left: 10px; margin-right: 10px;">
+                <div class="panel panel-default">
+                    <div class="panel-heading" id="leftside-creat" style="cursor: pointer;">                    
+                            Create City
+                    </div>                
+                </div>
+                <div class="panel panel-default" >
+                    <div class="panel-heading" id="leftside-edit" style="cursor: pointer;">                    
+                            Edit City
+                    </div>
+                </div>
+                <div class="panel panel-default" >
+                    <div class="panel-heading" id="leftside-delete" style="cursor: pointer;">                    
+                            Delete City
+                    </div>
+                </div>
+            </div>
+        
+        <?php
+            }
+            else if(( $current_action == "create") || ($current_action == "edit")) {
+        ?>
+            <div class="panel-group" id="accordion" style="margin-left: 10px; margin-right: 10px;">
+                <div class="panel panel-default">
+                    <div class="panel-heading" id="leftside-save" style="cursor: pointer;">                    
+                            Save
+                    </div>                
+                </div>
+                <div class="panel panel-default" >
+                    <div class="panel-heading" id="leftside-cancel">                    
+                            Cancel
+                    </div>
+                </div>                
+            </div>        
+        <?php        
+            }
+        }
+        ?>      
+    
+    </div>
+
+</div>

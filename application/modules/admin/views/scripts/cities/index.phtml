@@ -1,0 +1,62 @@
+<div class="subtitle">
+    &gt;&gt; CITIES
+</div>
+<table id="table"
+       data-toggle="table"
+       data-toolbar="#toolbar"               
+       data-click-to-select="true"
+       data-pagination="true"
+       data-search="true"
+       data-sort-name="id"
+       data-sort-order="desc"
+       data-url="/admin/cities/getcities">
+    <thead>
+    <tr>
+        <th data-field="state" data-checkbox="true" data-sortable="true"></th>
+        <th data-field="id" data-sortable="true">ID</th>
+        <th data-field="city" data-sortable="true">City</th>
+        <th data-field="administrator" data-sortable="true">Administrator</th>
+        <th data-field="enable">Enable</th>
+    </tr>
+    </thead>
+</table>
+
+<script>
+    var $table = $('#table'),
+        $create_button = $('#leftside-creat');
+        $edit_button = $('#leftside-edit');
+        $delete_button = $('#leftside-delete');
+
+    $(function () {
+        $create_button.click(function () {
+            window.location='/admin/cities/create';
+        });
+        $edit_button.click(function () {
+            var selected_list = $table.bootstrapTable('getSelections');
+            
+            var s = selected_list.length;
+            if(s == 1)
+            {
+                var id = selected_list[0].id;
+                window.location='/admin/cities/edit?id=' + id;
+            }
+            
+        });
+        $delete_button.click(function () {
+            var selected_list = $table.bootstrapTable('getSelections');
+            
+            var s = selected_list.length;
+            if(s>0){
+                var str = "";
+                for(var i=0;i<s;i++)
+                {
+                    var id = selected_list[i].id;
+                    str = str + id + ",";                
+                }
+                str = str.slice(0,-1);
+                //alert(str);
+                window.location='/admin/cities/delete?ids=' + str;
+            }
+        });
+    });
+</script>

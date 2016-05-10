@@ -1,0 +1,55 @@
+<form name="plus_centros" id="aform" action="/admin/centros/save" method="post">
+    <input type="hidden" id="idcentro" name="idcentro" value="<?=$this->centro->idcentro?>" />
+    <input id="delflg" name="delflg" type="hidden" value="" />
+    <table width="100%">
+        <tr>
+            <td colspan="4" >
+                <table width="100%">
+                    <tr>
+                        <td><div id="menu_netro">
+                            <?php if ( $this->centro->idcentro > 0 ): ?>
+                            <span class="menu">EDITAR NUEVO CENTRO</span>
+                            <?php else: ?>
+                            <span class="menu">A&Ntilde;ADIR NUEVO CENTRO</span>
+                            <?php endif; ?></div>
+                        </td>
+                        <td width="20"><a href="javascript:closeModal();"><img src="/images/x.png"  border="0" /></a></td>
+                    </tr>
+                </table>
+            </td>
+        </tr>
+        <tr>
+            <td align="right" width="30"></td>
+            <td align="left"><input type="text" class="boton_text" id="cod" name="cod" placeholder="COD" value="<?=$this->centro->cod?>" style=" width:300px;" /></td>
+        </tr>
+        <tr>
+            <td align="right"></td>
+            <td align="left"><input type="text" class="boton_text" id="nombre" name="nombre" placeholder="NOMBRE" value="<?=$this->centro->centro?>" style=" width:300px;" /></td>
+        </tr>
+        <tr>
+            <td align="right"></td>
+            <td align="left"><input type="text" class="boton_text" id="direccion" name="direccion" placeholder="DIRECCI&Oacute;N" value="<?=$this->centro->direccion?>" style=" width:300px;" /></td>
+        </tr>
+        <tr>
+            <td align="right"></td>
+            <td align="left"><input type="text" class="boton_text" id="ciudad" name="ciudad" placeholder="CIUDAD" value="<?=$this->centro->ciudad?>" style=" width:300px;" /></td>
+        </tr>
+        <tr>
+            <td align="right"></td>
+            <td align="left"><input type="text" class="boton_text" id="cp" name="cp" placeholder="C&Oacute;DIGO POSTAL" value="<?=$this->centro->cp?>" style=" width:300px;" /></td>
+        </tr>
+        <tr>
+            <td colspan="2">&nbsp;</td>
+        </tr>
+        <tr>
+            <td colspan="2" align="center"><input type="SUBMIT" name="Enviar" value="GUARDAR" class="boton_submit button" />
+                <?php if ( $this->centro->idcentro > 0 ): ?>
+                <input type="button" name="Enviar" value="BORRAR" class="boton_submit button" onclick="if ( confirm('¿Estas seguro de borrar este centro?') ) { document.getElementById('delflg').value='1'; document.getElementById('aform').submit(); }"/>
+                <?php endif; ?>
+            </td>
+
+            
+            
+        </tr>
+    </table>
+</form>

@@ -1,0 +1,47 @@
+<table width="100%">
+        <tr>
+            <td align="center" width="18%" nowrap="nowrap"><div id="menu_inactivo"><span class="menu"><a href="javascript:cargarFragmento('/admin/clientes/ficha?id=<?=$this->client->idcliente?>','capa_ventana');" class="menu">FICHA CLIENTE</a></span></div></td>
+            <td align="center" width="18%" nowrap="nowrap"><div id="menu_inactivo"><span class="menu"><a href="javascript:openModal(<?=$this->client->idcliente?>);" class="menu">EDITAR CLIENTE</a></span></div></td>
+            <td align="center" width="18%" nowrap="nowrap"><div id="menu_inactivo"><a href="javascript:cargarFragmento('/admin/clientes/ventas?id=<?=$this->client->idcliente?>','capa_ventana');" class="menu">VENTAS CLIENTE</a></span></div></td>
+            <td align="center" width="37%" nowrap="nowrap"><div id="menu_activo"><span class="menu">REGALOS</span></div></td>
+            <td width="20"><a href="javascript:closeModal();"><img src="/images/x.png"  border="0" /></a></td>
+        </tr>
+    </table>
+<table width="100%" cellpadding="2" cellspacing="2">
+
+<tr style="background-color:#CCCCCC"><td></td><td><strong>REGALO</strong></td><td><strong>PUNTOS</strong></td><td></td><td></td></tr>
+<tr><td colspan="4"><hr /></td></tr>
+<?php foreach ( $this->premios as $premio ): ?>
+    <tr><td></td><td><strong><?=$premio->premio?></strong></td><td><strong><?=$premio->puntos?></strong></td>
+    <?php if ( $premio->puntos >= $this->puntos and $this->puntos >= 0 ): ?>
+        <td></td></tr><tr><td colspan="4"><hr /></td></tr>
+    <?php else: ?>
+        <td>puntos_clientes : <?=$this->puntos?> &nbsp;&nbsp;&nbsp;<input type="button" name="pedir" id="pedir" class="boton_text button" value="PEDIR" onclick="javascript:openModal_regalos_pedir(<?=$this->client->idcliente?>,<?=$premio->idpremio?>,<?=$premio->puntos?>);"></td></tr><tr><td colspan="4"><hr /></td></tr>
+    <?php endif; ?>
+<?php endforeach; ?>
+</table>
+<table width="100%" cellpadding="2" cellspacing="2">
+<tr style="background-color:#CCCCCC"><td colspan="5" align="center"><strong>PEDIDOS</strong></td></tr>
+<tr style="background-color:#CCCCCC"><td></td><td><strong>REGALO</strong></td><td><strong>PUNTOS</strong></td><td><strong>FECHA</strong></td><td></td></tr>
+<tr><td colspan="5"><hr /></td></tr>
+<?php foreach ( $this->orders as $order ): ?>
+    <tr><td></td><td><strong><?=$order["premio"]?></strong></td><td><strong><?=$order["puntos"]?></strong></td>
+    <td><?=$order["fecha"]?></td>
+    <td>
+    <?php if ( $order['estado'] == 1 ): ?>
+        <input type="button" name="borrar" value="ERROR"  class="boton_text button" onclick="borra_pedido(<?=$order['idventa']?>,<?=$this->client->idcliente?>,2);" />
+        <input type="button" name="borrar" value="DEVOLUCI&Oacute;N" class="boton_text button" onclick="borra_pedido(<?=$order['idventa']?>,<?=$this->client->idcliente?>,3);" />
+        <input type="button" name="borrar" value="ENVIADO" class="boton_text button" onclick="borra_pedido(<?=$order['idventa']?>,<?=$this->client->idcliente?>,4);" />
+    <?php elseif ( $order['estado'] == 2 ): ?>
+        ERROR
+    <?php elseif ( $order['estado'] == 3 ): ?>
+        DEVOLUCION
+    <?php elseif ( $order['estado'] == 4 ): ?>
+        ENVIADO
+    <?php else: ?>
+        -<?=$order['estado']?>-
+    <?php endif; ?>
+    </td></tr>
+    <tr><td colspan="5"><hr /></td></tr>
+<?php endforeach; ?>
+</table>

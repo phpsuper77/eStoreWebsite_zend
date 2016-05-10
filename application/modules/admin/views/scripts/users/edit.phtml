@@ -1,0 +1,94 @@
+<form id="client_form" name="client_form" action="/admin/clientes/save" method="post">
+<table width="100%">
+<input type="hidden" name="idcliente"  value="<?=$this->client->idcliente?>"/>
+<input type="hidden" id="del_flg" name="del_flg"  value=""/>
+<tr><td colspan="4" >
+    <?php if ( $this->client->idcliente > 0 ): ?>
+        <table width="100%">
+            <tr>
+                <td align="center" width="18%" nowrap="nowrap"><div id="menu_inactivo"><span class="menu"><a href="javascript:cargarFragmento('/admin/clientes/ficha?id=<?=$this->client->idcliente?>','capa_ventana');" class="menu">FICHA CLIENTE</a></span></div></td>
+                <td align="center" width="37%" nowrap="nowrap"><div id="menu_activo"><span class="menu">EDITAR CLIENTE</span></div></td>
+                <td align="center" width="18%" nowrap="nowrap"><div id="menu_inactivo"><a href="javascript:cargarFragmento('/admin/clientes/ventas?id=<?=$this->client->idcliente?>','capa_ventana');" class="menu">VENTAS CLIENTE</a></span></div></td>
+                <td align="center" width="18%" nowrap="nowrap"><div id="menu_inactivo"><span class="menu"><a href="javascript:openModal_regalos(<?=$this->client->idcliente?>);" class="menu">REGALOS</a><span style=" color:#F00;"><?=$this->puntos>=15 ? "&iexcl;DISPONIBLE!" : ""?></span></span></div></td>
+                <td width="20"><a href="javascript:closeModal();"><img src="/images/x.png"  border="0" class="img-close"/></a></td>
+            </tr>
+        </table>
+    <?php else: ?>
+        <table width="100%"><tr><td><div id="menu_netro"><span class="menu">A&Ntilde;ADIR NUEVO CLIENTE</span></div></td><td width="20"><a href="javascript:closeModal();"><img src="/images/x.png"  border="0" /></a></td></tr></table>
+    <?php endif; ?>
+</td></tr>
+    <tr>
+        <td align="right" width="30">&nbsp;</td>
+        <td align="left"><input type="text" class="boton_text" placeholder="NOMBRE" name="nombre" value="<?=$this->client->nombre?>" style=" width:300px;" /></td>
+        <td align="right" width="30">&nbsp;</td>
+        <td align="left"><input type="text" class="boton_text" name="apellidos" placeholder="APELLIDOS" value="<?=$this->client->apellidos?>" style=" width:300px;" /></td>
+    </tr>
+    <tr>
+        <td align="right">&nbsp;</td>
+        <td align="left"><input type="text" class="boton_text" name="direccion" placeholder="DIRECCI&Oacute;N" value="<?=$this->client->direccion?>" style=" width:300px;" /></td>
+        <td align="right"></td>
+        <td align="left">
+            <select class="boton_text" name="idcentro" style=" width:320px;">
+                <option>--------CENTRO HABITUAL--------</option>
+                <?php foreach ( $this->centroList as $centro ): ?>
+                <option value="<?=$centro->idcentro?>" <?php if ($this->client->idcentro==$centro->idcentro) echo 'selected="selected"'; ?>><?=$centro->centro?></option>
+                <?php endforeach; ?>
+            </select>
+        </td>
+    </tr>
+    <tr>
+        <td align="right"></td>
+        <td align="left"><input type="text" class="boton_text" placeholder="DIRECCI&Oacute;N 2" name="direccion2" value="<?=$this->client->direccion2?>" style=" width:300px;" /></td>
+        <td align="right"></td>
+        <td align="left"><input type="text" class="boton_text" name="cp" placeholder="C&Oacute;DIGO POSTAL" value="<?=$this->client->cod?>" style=" width:300px;" /></td>
+    </tr>
+    <tr>
+        <td align="right"></td>
+        <td align="left"><input type="text" class="boton_text" name="ciudad" placeholder="CIUDAD" value="<?=$this->client->ciudad?>" style=" width:300px;" /></td>
+        <td align="right"></td>
+        <td align="left"><input type="text" class="boton_text" name="telefono" placeholder="TEL&Eacute;FONO" value="<?=$this->client->telefono?>" style=" width:300px;" /></td>
+    </tr>
+    <tr>
+        <td align="right"></td>
+        <td align="left"><input type="text" class="boton_text" name="movil" placeholder="M&Oacute;VIL" value="<?=$this->client->movil?>" style=" width:300px;" /></td>
+        <td align="right"></td>
+        <td align="left"><input type="text" class="boton_text" name="fecha_nacimiento" placeholder="A&Ntilde;O NACIMIENTO" value="<?=$this->client->fecha_nacimiento?>" style=" width:300px;" /></td>
+    </tr>
+    <tr>
+        <td align="right"></td>
+        <td align="left"><input type="text" class="boton_text" name="dia_nacimiento" placeholder="CUMPLEA&Ntilde;OS" value="<?=$this->client->dia_nacimiento?>" style=" width:300px;" /></td>
+        <td align="right"></td>
+        <td align="left"><input type="text" class="boton_text" name="fecha_alta" placeholder="FECHA ALTA" value="<?=$this->client->fecha_alta?>" style=" width:300px;" /></td>
+    </tr>
+    <tr>
+        <td align="right"></td>
+        <td align="left"><input type="text" class="boton_text" name="email" placeholder="E-MAIL" value="<?=$this->client->email?>" style=" width:300px;" /></td>
+        <td align="right"></td>
+        <td align="left"><input type="text" class="boton_text" name="dni" placeholder="DNI" value="<?=$this->client->dni?>" style=" width:300px;" /></td>
+    </tr>
+    <tr>
+        <?php if ( $this->client->idcliente > 0 ): ?>
+        <td align="right"></td>
+        <td align="left">Puntos : <strong><?=$this->puntos?></strong></td>
+        <?php endif; ?>
+        <td align="right"></td>
+        <td><input type="password" name="pass" id="pass" placeholder="CONTRASE&Ntilde;A" class="boton_text" style="width:300px;" /></td>
+    </tr>
+    <?php if ( $this->client->idcliente > 0 ): ?>
+    <tr>
+        <td align="center" colspan="4">Fecha de alta : <?=$this->client->createddate?></td>
+    </tr>
+    <?php endif; ?>
+    <tr>
+        <?php if ( $this->client->idcliente > 0 ): ?>
+        <td colspan="2" align="center"><input type="submit" name="Enviar" value="GUARDAR" class="boton_submit button" /></td>
+        <td colspan="2" align="center"><input type="button" name="Enviar" value="DAR DE BAJA" class="boton_submit button" onclick="javascript:baja_cliente(<?=$this->client->idcliente?>);" /></td>
+        <?php else: ?>
+        <td colspan="4" style="padding-left:100px;padding-top:25px;">
+            <input type="submit" name="Enviar" value="ALTA" class="boton_submit button" />
+        </td>
+        <?php endif; ?>
+    </tr>
+
+    
+</table></form>

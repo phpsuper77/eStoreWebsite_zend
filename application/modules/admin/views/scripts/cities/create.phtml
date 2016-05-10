@@ -1,0 +1,146 @@
+<style>
+.form-horizontal .control-label {
+    padding-top: 10px;
+}
+</style>
+
+<div class="create_form" style="margin-top: 30px; width: 500px;">
+<form class="form-horizontal" action="/admin/cities/createresult" id="createcity_form">
+
+    <div class="form-group">
+        <label for="inputEmail3" class="col-sm-4 control-label">City</label>
+        <div class="col-sm-8">
+            <input type="text" name="city" class="form-control" placeholder="City">
+        </div>
+    </div>
+    
+    <div class="form-group">
+        <label for="inputEmail3" class="col-sm-4 control-label">Email</label>
+        <div class="col-sm-8">
+            <input type="email" name="email" class="form-control" id="email" placeholder="Email">
+        </div>
+    </div>
+    
+    <div class="form-group">
+        <label for="inputEmail3" class="col-sm-4 control-label">Administrator</label>
+        <div class="col-sm-8">
+            <select class="form-control" name="administrator">
+                <?php  
+                    foreach($this->adminList as $admin){ ?>
+                    <option value="<?=$admin["admin_id"] ?>"> <?=$admin["administrator"] ?> </option>
+                <?php } ?>
+            </select>
+        </div>
+    </div>
+    
+    
+    <div class="form-group">
+        <label for="inputEmail3" class="col-sm-4 control-label">Country</label>
+        <div class="col-sm-8">
+            <select class="form-control" name="country">
+                <?php  
+                    foreach($this->countryList as $country){ ?>
+                    <option value="<?=$country["country_id"] ?>"> <?=$country["country"] ?> </option>
+                <?php } ?>
+            </select>
+        </div>
+    </div>
+    
+    <div class="form-group">
+        <label for="inputEmail3" class="col-sm-4 control-label">Currency</label>
+        <div class="col-sm-8">
+            <select class="form-control" name="currency">
+                <option value="Select">Please select</option>
+                <option value="USD">U.S. Dollar</option>
+                <option value="EUR">Euro</option>
+                <option value="MXN">Mexican Peso</option>
+                <option value="AUD">Australian Dollar</option>
+                <option value="BRL">Brazilian Real</option>
+                <option value="CAD">Canadian Dollar</option>
+                <option value="CZK">Czech Koruna</option>
+                <option value="DKK">Danish Krone</option>
+                <option value="HKD">Hong Kong Dollar</option>
+                <option value="HUF">Hungarian Forint</option>
+                <option value="ILS">Israeli New Sheqel</option>
+                <option value="JPY">Japanese Yen</option>
+                <option value="MYR">Malaysian Ringgit</option>
+                <option value="NOK">Norwegian Krone</option>
+                <option value="NZD">New Zealand Dollar</option>
+                <option value="PHP">Philippine Peso</option>
+                <option value="PLN">Polish Zloty</option>
+                <option value="GBP">Pound Sterling</option>
+                <option value="SGD">Singapore Dollar</option>
+                <option value="SEK">Swedish Krona</option>
+                <option value="CHF">Swiss Franc</option>
+                <option value="TWD">Taiwan New Dollar</option>
+                <option value="THB">Thai Baht</option>
+                <option value="TRY">Turkish Lira</option>
+            </select>
+        </div>
+    </div>
+    
+    <div class="form-group">
+        <label for="inputEmail3" class="col-sm-4 control-label">GA Tracking ID</label>
+        <div class="col-sm-8">
+            <input type="text" name="ga_id" class="form-control" placeholder="GA Tracking ID">
+        </div>
+    </div>
+    
+    <div class="form-group">
+        <label for="inputEmail3" class="col-sm-4 control-label">Zone</label>
+        <div class="col-sm-8">
+            <select class="form-control" name="zone">
+                <option value="" selected=""></option>
+                <option value="America/Phoenix">Arizona (GMT-07:00)</option>
+                <option value="America/Halifax">Atlantic Time (Canada) (GMT-04:00)</option>
+                <option value="America/Bogota">Bogota (GMT-05:00)</option>
+                <option value="America/Sao_Paulo">Brasilia (GMT-03:00)</option>
+                <option value="America/Argentina/Buenos_Aires">Buenos Aires (GMT-03:00)</option>
+                <option value="America/Caracas">Caracas (GMT-04:30)</option>
+                <option value="America/Tegucigalpa">Central America (GMT-06:00)</option>
+                <option value="America/Chicago">Central Time (US &amp; Canada) (GMT-06:00)</option>
+                <option value="America/Chihuahua">Chihuahua (GMT-07:00)</option>
+                <option value="America/New_York">Eastern Time (US &amp; Canada) (GMT-05:00)</option>
+                <option value="Pacific/Fiji">Fiji (GMT+12:00)</option>
+                <option value="America/Godthab">Greenland (GMT-03:00)</option>
+                <option value="Pacific/Honolulu">Hawaii (GMT-10:00)</option>
+                <option value="America/Indiana/Indianapolis">Indiana (East) (GMT-05:00)</option>
+                <option value="Kwajalein">International Date Line West (GMT-12:00)</option>
+                <option value="America/La_Paz">La Paz (GMT-04:00)</option>
+                <option value="America/Lima">Lima (GMT-05:00)</option>
+                <option value="Europe/Madrid">Madrid (GMT+01:00)</option>
+                <option value="America/Manaus">Manaus (GMT-04:00)</option>
+                <option value="America/Mazatlan">Mazatlan (GMT-07:00)</option>
+                <option value="America/Mexico_City">Mexico City (GMT-06:00)</option>
+                <option value="America/Monterrey">Monterrey (GMT-06:00)</option>
+                <option value="America/Montevideo">Montevideo (GMT-03:00)</option>
+                <option value="America/Denver">Mountain Time (US &amp; Canada) (GMT-07:00)</option>
+                <option value="Europe/Netherlands">Netherlands (GMT+01:00)</option>
+                <option value="America/St_Johns">Newfoundland (GMT-03:30)</option>
+                <option value="America/Los_Angeles">Pacific Time (US &amp; Canada) (GMT-08:00)</option>
+                <option value="Europe/Paris">Paris (GMT+01:00)</option>
+                <option value="America/Rio_Branco">Rio Branco (GMT-05:00)</option>
+                <option value="America/Santiago">Santiago (GMT-04:00)</option>
+                <option value="America/Regina">Saskatchewan (GMT-06:00)</option>
+                <option value="America/Tijuana">Tijuana, Baja California (GMT-08:00)</option>
+
+            </select>
+        </div>
+    </div>
+    
+</form>
+</div>
+
+<script>
+    var $save_button = $('#leftside-save');
+    var $cancel_button = $('#leftside-cancel');
+        
+    $(function () {
+        $save_button.click(function () {
+            document.getElementById("createcity_form").submit();
+        });
+        $cancel_button.click(function () {
+            window.location='/admin/cities';
+        });        
+    });
+</script>

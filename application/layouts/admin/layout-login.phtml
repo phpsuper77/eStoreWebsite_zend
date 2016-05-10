@@ -1,0 +1,50 @@
+<!doctype html>
+<head>
+    <meta http-equiv="Content-Type" content="text/html;charset=utf-8" />
+
+	<meta name="keywords" content="givenchy admin" />	
+	<meta name="description" content="GIVENCHY THE CLUB" />
+    
+	<title>GIVENCHY THE CLUB</title>
+    
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/1.7.2/jquery.min.js"></script>
+	<?php 
+		$this->headLink()
+            ->prependStylesheet($this->baseUrl().'/css/admin_estilo.css');
+
+		$this->headScript()
+            ->prependFile($this->baseUrl().'/js/admin_custom.js');
+
+        echo $this->headLink();
+        echo $this->headScript();                               
+    ?>
+
+    <script type="text/javascript">
+    	var baseUrl = '<?= json_encode($this->baseUrl()); ?>';
+    </script>
+</head>
+<body>
+    <div id="info" >
+        <div id="registro">
+            <form method="post" action="/admin">
+                <table>
+                    <tr><td colspan="2"><br /><br /><font color="#FF0000" ><strong><?=$this->errMsg?></strong></font><br /></td></tr>
+                    <tr>
+                        <td align="right"><strong>Usuario :</strong></td>
+                        <td><input type="text" name="email" class="boton_text" value="<?=$this->user?>"/></td>
+                    </tr>
+                    <tr>
+                        <td align="right"><strong>Contraseña :</strong></td>
+                        <td><input type="password" name="pass" class="boton_text" /></td>
+                    </tr>
+                    <tr>
+                        <td></td>
+                        <td><input type="submit" name="Entrar" value="ENTRAR" class="boton_submit button" /></td>
+                    </tr>
+                 </table>
+            </form>
+        </div>
+    </div>
+    <div style="height:20px;"></div>
+</body>
+</html>

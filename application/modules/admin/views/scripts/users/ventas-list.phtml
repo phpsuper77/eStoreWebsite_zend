@@ -1,0 +1,27 @@
+<table width="100%">
+<?php if ( !empty($this->products) ): ?>
+<tr style="background-color:#CCCCCC"><th>COD. EAN</th><th>Nombre</th><th>Precio</th><th>Cantidad</th><th>Descuento</th><th>Importe</th><th>Fecha</th><th>Puntos</th><th></th></tr>
+    <?php foreach ( $this->products as $product ): ?>
+        <tr>
+            <td  align="center"><?=$product->cod_ean?></td>
+            <td  ><?=$product->producto?></td>
+            <td  ><?=$product->precio?></td><input type="hidden" id="idproducto_g_<?=$product->idproducto?>" name="idproducto_g_<?=$product->idproducto?>" value="<?=$product->idproducto?>" /><input type="hidden" id="idcliente_g_<?=$product->idproducto?>" name="idcliente_g_<?=$product->idproducto?>" value="<?=$this->client->idcliente?>" /><input type="hidden" id="pvp_g_<?=$product->idproducto?>" name="pvp_g_<?=$product->idproducto?>" value="<?=$product->precio?>" />
+            <td  align="center"><input type="text" id="cantidad_g_<?=$product->idproducto?>" value="1" name="cantidad_g_<?=$product->idproducto?>" class="boton_text" onblur="javascript:document.getElementById('precioventa_g_<?=$product->idproducto?>').value=(<?=$product->precio?> - ((<?=$product->precio?> * document.getElementById('descuento_g_<?=$product->idproducto?>').value)/100))* this.value ; document.getElementById('puntos_g_<?=$product->idproducto?>').value=parseInt((document.getElementById('precioventa_g_<?=$product->idproducto?>').value)/10);"  style="width:20px;" /></td>
+            <td  align="center"><input type="text" id="descuento_g_<?=$product->idproducto?>" value="0" name="descuento_g_<?=$product->idproducto?>" class="boton_text" onblur="javascript:document.getElementById('precioventa_g_<?=$product->idproducto?>').value=(<?=$product->precio?> - ((<?=$product->precio?> * this.value)/100))* document.getElementById('cantidad_g_<?=$product->idproducto?>').value; document.getElementById('puntos_g_<?=$product->idproducto?>').value=parseInt((document.getElementById('precioventa_g_<?=$product->idproducto?>').value)/10);"  style="width:20px;" /></td>
+            <td align="center"><input type="text" id="precioventa_g_<?=$product->idproducto?>" name="precioventa_g_<?=$product->idproducto?>" onchange="javascript:document.getElementById('puntos_g_<?=$product->idproducto?>').value=parseInt((this.value)/10);"  class="boton_text" style="width:100px;" value="<?=$product->precio?>" /></td>
+            <td align="center"><input type="text" id="fecha_g_<?=$product->idproducto?>" name="fecha_g_<?=$product->idproducto?>" class="boton_text" style="width:100px;" value="" /></td>
+            <td align="center"><input type="text" id="puntos_g_<?=$product->idproducto?>" name="puntos_g<?=$product->idproducto?>" class="boton_text" style="width:40px;" value="<?=round($product->precio, 1)?>" /></td>
+            <td><input type="button" value="GUARDAR"  class="boton_text button" onclick="javascript:venta_guardar('<?=$product->idproducto?>');" /></td>
+           </tr>
+         <tr><td colspan="8"><hr /></td></tr>
+    <?php endforeach; ?>
+<tr><td colspan="8">
+<br /><center>
+
+</center>
+</td></tr></table>
+<?php else: ?>
+<tr style="background-color:#CCCCCC"><th>COD. EAN</th><th>Nombre</th><th>Precio</th><th>Descuento</th><th>Precio Venta</th><th>Puntos</th><th></th></tr>
+<tr><td colspan="5">NO SE ENCONTRO NINGUN PRODUCTO </td></tr>
+</table>
+<?php endif; ?>

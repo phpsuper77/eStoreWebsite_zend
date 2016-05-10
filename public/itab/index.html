@@ -1,0 +1,61 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Strict//EN"  
+ "http://www.w3.org/TR/xhtml1/DTD/xhtml1-strict.dtd">  
+<html xmlns="http://www.w3.org/1999/xhtml" xml:lang="en" lang="en">  
+<head>  
+    <title>Tabbed Structure - Regular</title>  
+    <link rel="stylesheet" href="style.css" type="text/css" media="screen" />  
+	<script type="text/javascript" src="script.js"></script>
+	<script src="Func.js" type="text/javascript"></script>
+</head>  
+  
+<body onLoad="iFrameOn();">
+ <form action="my_parse_file.php" name="myform" id="myform" method="post"> 
+ <br></br> 
+ <div id="wysiwyg_cp" style="padding:8px; width:700px;">
+  <input type="button" onClick="iBold()" value="Bold"> 
+  <input type="button" onClick="iUnderline()" value="Underline">
+  <input type="button" onClick="iItalic()" value="Italic">
+  <input type="button" onClick="iFontSize()" value="Text Size">
+  <input type="button" onClick="iForeColor()" value="Text Color">
+  <br></br>
+  <input type="button" onClick="iHorizontalRule()" value="Hard Rule">
+  <input type="button" onClick="iUnorderedList()" value="Unordered List">
+  <input type="button" onClick="iOrderedList()" value="Ordered List">
+  <input type="button" onClick="iLink()" value="Link">
+  <input type="button" onClick="iUnLink()" value="UnLink">
+  <input type="button" onClick="iImage()" value="Image">
+</div>
+<br></br>
+<div id="tabbed_box_1" class="tabbed_box">  
+    
+    <div class="tabbed_area">  
+       
+
+	<ul class="tabs">  
+    <li><a href="javascript:tabSwitch_2(1, 3, 'tab_', 'content_');" id="tab_1" class="active">Tabs yo</a></li>  
+    <li><a href="javascript:tabSwitch_2(2, 3, 'tab_', 'content_');" id="tab_2">Another tab</a></li>  
+    <li><a href="javascript:tabSwitch_2(3, 3, 'tab_', 'content_');" id="tab_3">One more</a></li>  
+</ul>   
+          
+          
+        <div id="content_1" class="content">
+			<textarea style="display:none;" name="myTextArea" id="myTextArea" cols="100" rows="14"></textarea>
+				<iframe name="richTextField" id="richTextField" style="border:#000000 1px solid; width:700px; height:300px;"></iframe></div>  
+        <div id="content_2" class="content">
+			<textarea style="display:none;" name="myTextArea" id="myTextArea" cols="100" rows="14"></textarea>
+				<iframe name="richTextField" id="richTextField" style="border:#000000 1px solid; width:700px; height:300px;"></iframe></div> 
+        <div id="content_3" class="content">
+			<textarea style="display:none;" name="myTextArea" id="myTextArea" cols="100" rows="14"></textarea>
+				<iframe name="richTextField" id="richTextField" style="border:#000000 1px solid; width:700px; height:300px;"></iframe></div>  
+      
+    </div>  
+   
+  
+</div>
+<br></br>
+
+
+
+
+</body>  
+</html>

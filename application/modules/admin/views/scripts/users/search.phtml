@@ -1,0 +1,39 @@
+<table style=" width:900px">
+<tr><td colspan="8">&nbsp;</td></tr>
+<?php foreach ( $this->clientList as $client ): ?>
+            <tr>
+                <td width="100" align="center" style="width:100px;"> <?=$client->dni?></td>
+                <td width="190"><?=$client->nombre?></td>
+                <td width="180"><?=$client->apellidos?></td>
+                <td width="170" align="center"><?=$client->ciudad?></td>
+                <td width="85" align="center"><?=$client->idcentro?></td>
+                <!--<td width="50" align="center"><?php // recuperapuntos(rs("idcliente")) ?></td>-->
+                <td width="135" align="right"><input type="button" id="button" value="VER" class="button btn-edit btn-small" onclick="openModal('<%=id%>'); " /><input type="button" id="button" value="VENTA" class="button btn-edit btn-small" onclick="openModal3('<?=$client->idcliente?>'); "/></td>
+               </tr>
+             <tr><td colspan="8"><hr /></td></tr>
+<?php endforeach; ?>
+<tr><td colspan="8">
+<br />
+<center>
+<?php if($this->curPage > 1): ?>
+<font class="showpageNum">
+    <a href="/admin/clientes?page=<?=($this->curPage-1)?>" class="btn-page-arrow btn-prev-page">            
+        ANTERIOR
+    </a>
+</font>&nbsp;&nbsp;&nbsp;
+<?php endif; ?>
+<?php for($n=1; $n<$this->pageCount+1; $n++): ?>
+    <?php if($n != $this->curPage): ?>
+        <font class="showpageNum"><a href="/admin/clientes?page=<?=$n?>" ><?=$n?></a></font>&nbsp;
+    <?php else: ?>
+        <font class="showpagePoint"><?=$n?></font>&nbsp;
+    <?php endif; ?>
+<?php endfor; ?>
+<?php if ( $this->curPage < $this->pageCount ): ?>
+&nbsp;&nbsp;&nbsp;<font class="showpageNum">
+    <a href="/admin/clientes?page=<?=($this->curPage+1)?>" class="btn-page-arrow btn-next-page"> SIGUIENTE</a>
+</font>
+<?php endif; ?>
+</center>
+</td></tr>
+    </table>

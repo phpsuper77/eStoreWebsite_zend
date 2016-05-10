@@ -1,0 +1,67 @@
+<table width="100%">
+        <tr>
+            <td align="center" width="18%" nowrap="nowrap"><div id="menu_inactivo"><span class="menu"><a href="javascript:cargarFragmento('/admin/clientes/ficha?id=<?=$this->client->idcliente?>','capa_ventana');" class="menu">FICHA CLIENTE</a></span></div></td>
+            <td align="center" width="18%" nowrap="nowrap"><div id="menu_inactivo"><span class="menu"><a href="javascript:openModal(<?=$this->client->idcliente?>);" class="menu">EDITAR CLIENTE</a></span></div></td>
+            <td align="center" width="37%" nowrap="nowrap"><div id="menu_activo"><span class="menu">VENTAS CLIENTE</span></div></td>
+            <td align="center" width="18%" nowrap="nowrap"><div id="menu_inactivo"><span class="menu"><a href="javascript:openModal_regalos(<?=$this->client->idcliente?>);" class="menu">REGALOS</a><span style=" color:#F00;"><?=$this->puntos>=15 ? "&iexcl;DISPONIBLE!" : ""?></span></span></div></td>
+            <td width="20"><a href="javascript:closeModal();"><img src="/images/x.png"  border="0" /></a></td>
+        </tr>
+    </table>
+
+
+<table width="100%">
+
+<tr><td colspan="4">C&Oacute;DIGO EAN o NOMBRE: <input type="text" id="cod_ean_venta" name="cod_ean_venta" class="boton_text" onkeyup="venta(this.value,<?=$this->client->idcliente?>);" style="width:150px;" /><input  type="button" value="Buscar" onclick="venta(document.getElementById('cod_ean_venta').value,<?=$this->client->idcliente?>);" class="btn-search button" /></td></tr> 
+<tr><td colspan="4">
+
+<tr><td colspan="9"><div id="venta_listado">
+<table width="100%">
+<tr style="background-color:#CCCCCC"><th>COD. EAN</th><th>Nombre</th><th>Precio</th><th>Cantidad</th><th>Descuento</th><th>Importe</th><th>Puntos</th><th></th></tr>
+<tr><td>Introduzca el c&oacute;digo EAN</td></tr>
+
+
+</table>
+</div></td></tr>
+<tr><td colspan="9"><hr /></td></tr>
+<tr><td colspan="9"><div id="venta_guardados">
+<table width="100%">
+<tr style="background-color:#CCCCCC"><td>Producto</td><td>Centro</td><td>Importe</td><td>Cantidad</td><td>Descuento</td><td>Puntos</td><td>Fecha</td><td>Precio Original</td><td>Borrar</td></tr>
+<?php if ( !empty($this->ventas) ): ?>
+    <?php foreach ( $this->ventas as $venta ): ?>
+        <tr>
+            <td  ><?=$venta['product_name']?></td>
+            <td  ><?=$venta['idcentro']?></td>
+            <td  align="center"><?=$venta['precio']?></td>
+            <td  align="center"><?=$venta['cantidad']?></td>
+            <td align="center"><?=$venta['descuento']?></td>
+            <td align="center"><?=$venta['puntos']?></td>
+            <td  align="center"><?=$venta['fecha']?></td>
+            <td align="center"><?=$venta['precio_marcado']?></td>
+            <td><input type="button" name="borrar" value="ERROR"  class="boton_text button" onclick="borra_venta(<?=$venta['idventa']?>,<?=$this->client->idcliente?>,2);" />&nbsp;<input type="button" name="borrar" value="DEVOLUCI&Oacute;N" class="boton_text button" onclick="borra_venta(<?=$venta['idventa']?>,<?=$this->client->idcliente?>,3);" /></td>
+           </tr>
+         <tr><td colspan="9"><hr /></td></tr>
+    <?php endforeach; ?>
+        <tr>
+            <td ></td>
+            <td ></td>
+            <td colspan="3" align="right"><strong>TOTAL PUNTOS :</strong></td>
+
+            <td align="center"><strong><?=$this->puntos?></strong></td>
+            <td align="center"></td>
+            <td align="center"></td>
+            
+            <td></td>
+           </tr>
+<?php else: ?>    
+<tr><td colspan="9">NO TIENE NING&Uacute;N PRODUCTO EN EL LISTADO DE COMPRAS </td></tr>
+<?php endif; ?>
+
+<tr><td colspan="8">
+<br /><center>
+</center>
+</td></tr>
+
+</table>
+</div></td></tr>
+</td></tr>
+</table>
