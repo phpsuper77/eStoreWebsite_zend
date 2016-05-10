@@ -1,0 +1,735 @@
+/****** Font Import *******/
+@font-face
+{
+    font-family: 'Scada';
+    src: url('Scada-Regular.ttf') format('truetype');
+    font-weight: normal;
+    font-style: normal;
+}
+@font-face
+{
+font-family: ScadaItalic;
+src: url('Scada-Italic.ttf');
+}
+@font-face
+{
+font-family: ScadaBold;
+src: url('Scada-Bold.ttf');
+}
+@font-face
+{
+font-family: ScadaBoldItalic;
+src: url('Scada-BoldItalic.ttf');
+}
+
+/******** Common Style *********/
+html, body { margin:0; padding: 0; overflow: hidden; }
+a:hover {
+    opacity: 0.8;
+}
+#header {
+    height: 120px;
+    width: 100%;
+    background: url('../images/bg_header.png') 0 0 repeat transparent;
+    color: #fff;
+    position: relative;
+}
+#header.fixed-header {
+    position: fixed;
+    height: 120px;
+    z-index: 9999;
+}
+.blank-header {
+    display: none;
+    height: 120px;
+}
+#header a {
+    color: #fff;
+}
+#header .login-menu span,
+#header .login-menu a {
+    color: #fff;
+    font-family: 'Scada';
+    font-size: 20px;
+}
+#header .login-menu span {
+    font-style: italic;
+}
+#logo {
+    width: 20%;
+    float: left;
+    height: 100px;
+    margin-top: 10px;
+    margin-left: 20px;
+}
+#logo img { height: 100%; }
+img.full-image { height: 100%; max-width: 100%; }
+#header .main-menu {
+    width: 60%;
+    float: left;
+}
+#header .login-menu {
+    width: 15%;
+    float: right;
+    margin-top: 20px;
+    text-align: right;
+    margin-right: 25px;
+}
+.ico-view {
+    background: url('../images/menu_ico_view.png') 50% 0 no-repeat transparent;
+}
+.ico-edit {
+    background: url('../images/menu_ico_edit.png') 50% 0 no-repeat transparent;
+}
+.ico-map {
+    background: url('../images/menu_ico_map.png') 50% 0 no-repeat transparent;
+}
+.ico-photo {
+    background: url('../images/menu_ico_photo.png') 50% 0 no-repeat transparent;
+}
+.ico-add-photo {
+    background: url('../images/ico_photo.png') 50% 0 no-repeat transparent;
+}
+.ico-photo-select {
+    background: url('../images/menu_ico_photo_hover.png') 50% 0 no-repeat transparent;
+}
+.ico-video {
+    background: url('../images/menu_ico_video.png') 50% 0 no-repeat transparent;
+}
+.ico-add-video {
+    background: url('../images/ico_video.png') 50% 0 no-repeat transparent;
+}
+.ico-video-select {
+    background: url('../images/menu_ico_video_hover.png') 50% 0 no-repeat transparent;
+}
+.ico-user {
+    background: url('../images/menu_ico_user.png') 50% 0 no-repeat transparent;
+}
+.ico-user-select {
+    background: url('../images/menu_ico_user_hover.png') 50% 0 no-repeat transparent;
+}
+.ico-quote {
+    background: url('../images/menu_ico_quote.png') 50% 0 no-repeat transparent;
+}
+.ico-quote-select {
+    background: url('../images/menu_ico_quote_hover.png') 50% 0 no-repeat transparent;
+}
+.ico-add-quote {
+    background: url('../images/ico_quote.png') 50% 0 no-repeat transparent;
+}
+.ico-edit {
+    background: url('../images/menu_ico_edit.png') 50% 0 no-repeat transparent;
+}
+.ico-edit {
+    background: url('../images/menu_ico_edit.png') 50% 0 no-repeat transparent;
+}
+.ico-user-view {
+    background: url('../images/ico_user_view.png') 50% 0 no-repeat transparent;
+}
+.ico-user-quote {
+    background: url('../images/ico_user_quote.png') 50% 0 no-repeat transparent;
+}
+.ico-user-add {
+    background: url('../images/ico_user_add.png') 50% 0 no-repeat transparent;
+}
+.ico-download {
+    background: url('../images/ico_download.png') 50% 0 no-repeat transparent;
+    width: 35px;
+    height: 24px;
+    position: absolute;
+    top: 15px;
+    right: 35px;
+}
+.ico-favorite {
+    background: url('../images/ico_favorite.png') 50% 0 no-repeat transparent;
+    width: 24px;
+    height: 22px;
+    position: absolute;
+    top: 15px;
+    right: 6px;
+}
+.ico-media-video {
+    background: url('../images/mark_video.png') 50% 50% no-repeat transparent;
+    width: 50px;
+    height: 50px;
+    position: absolute;
+    left: 43%;
+    top: 36%;
+}
+#header .main-menu ul {
+    width: 100%;
+    padding: 0;
+    margin: 20px 0;
+    float: left;
+}
+#header .main-menu li {
+    list-style: none;
+    float: left;
+    width: 12%;
+    margin-right: 3%;
+}
+#header .main-menu li a {
+    background-size: 100% auto;
+    display: block;
+    font-size: 17px;
+    padding-top: 60px;
+    text-align: center;
+    text-decoration: none;
+    width: 55px;
+}
+.round {
+    border-radius: 5px;
+    -moz-border-radius: 5px;
+    -webkit-border-radius: 5px;
+    -o-border-radius: 5px;
+    -ms-border-radius: 5px;
+}
+
+/******** Homepage Style *********/
+#homepage-wrapper {
+    background: url('../images/bg_homepage.jpg') no-repeat fixed top left;
+    background-size: 100% 100%;
+    -moz-background-size: 100% 100%;
+    -webkit-background-size: 100% 100%;
+    -o-background-size: 100% 100%;
+    -ms-background-size: 100% 100%;
+    overflow: hidden;
+}
+#page-wrapper {
+    background: url('../images/full_bg.jpg') no-repeat fixed top left;
+    overflow-x: hidden;
+    background-size: 100% 100%;
+    -moz-background-size: 100% 100%;
+    -webkit-background-size: 100% 100%;
+    -o-background-size: 100% 100%;
+    -ms-background-size: 100% 100%;
+}
+#footer {
+    width: 100%;
+    bottom: 0;
+    float: left;
+}
+#footer .footer-logo {
+    position: absolute;
+    left: 2%;
+    bottom: 2%;
+}
+#footer .footer-mark {
+    position: absolute;
+    right: 3%;
+    bottom: 1.5%;
+}
+#footer .footer-text {
+    font-family: 'Scada';
+    font-weight: bold;
+    font-style: italic;
+    font-size: 24px;
+    float: left;
+    color: #fff;
+    margin-right: 10px;
+    margin-top: 15px;
+}
+#footer .footer-mark img {
+    float: left;
+}
+#home-content-wrapper {
+    /*float: left;*/
+    width: 960px;
+    margin: 0 auto;
+}
+#home-content-wrapper .book {
+    width: 46%;
+    float: left;
+    height: 100%;
+    text-align: center;
+    padding-left: 2%;
+}
+#home-content-wrapper .home-start {
+    width: 50%;
+    margin-right: 2%;
+    float: right;
+    margin-top: 70px;
+    background: url('../images/home_title.png') 50% 0 / 98% auto no-repeat transparent;
+    padding-top: 10%;
+    font-family: 'Scada';
+    color: #fff;
+    text-align: center;
+    font-style: italic;
+}
+.home-start h5 {
+    font-family: 'Scada';
+    font-size: 40px;
+    margin: 0;
+}
+.home-start h2 {
+    font-size: 50px;
+    font-weight: bold;
+    margin: 10px 0 0;
+}
+.home-start p {
+    font-size: 18px;
+    margin-bottom: 30px;
+}
+a.btn-start {
+    border: 1px solid #fff;
+    padding: 7px 15px;
+    color: #fff;
+    font-family: 'Scada';
+    font-size: 28px;
+    font-style: normal;
+    text-decoration: none;
+}
+
+/******** Main Page Style **********/
+#main-content-wrapper {
+    width: 960px;
+    margin: 0 auto;
+}
+#main-content-wrapper .title {
+    margin: 5% auto;
+}
+#main-content-wrapper .title img {
+    width: 100%;
+}
+#main-content-wrapper .train-wrapper.row2 {
+    width: 90%;
+    margin: 0 auto;
+}
+#main-content-wrapper .train {
+    float: left;
+}
+#main-content-wrapper .train .train-image {
+    border: 1px solid #fff;
+}
+#main-content-wrapper .train .train-image a {
+    opacity: 0.5;
+    display: block;
+}
+#main-content-wrapper .train .train-image a:hover {
+    opacity: 1;
+}
+#main-content-wrapper .train .train-image a.active {
+    opacity: 1;
+}
+#main-content-wrapper .train .train-image img {
+    width: 100%;
+}
+#main-content-wrapper .row2 .train {
+    width: 40%;
+    margin: 0 5%;
+}
+#main-content-wrapper .train-wrapper.row3 {
+    width: 100%;
+}
+#main-content-wrapper .row3 .train {
+    width: 32%;
+    margin-right: 2%;
+}
+#main-content-wrapper .row3 .train:last-child {
+    margin-right: 0;
+}
+.train .route-wrapper {
+    display: none;
+}
+.train .route-wrapper a {
+    color: #fff;
+    text-decoration: none;
+}
+.train .route-wrapper ul {
+    padding: 0;
+    margin: 0;
+}
+.train .route-wrapper li {
+    list-style: none;
+}
+.train .route-wrapper li a {
+    display: block;
+    padding: 10px 12px;
+    border: 1px solid #fff;
+    font-family: 'Scada';
+    font-size: 24px;
+    font-style: italic;
+}
+.train .route-wrapper li a:hover {
+    color: #623B61;
+    background-color: #DBB9A0;
+}
+
+/********** Edit and View Page Style ***********/
+#content-wrapper {
+    background: #fff;
+    width: 900px;
+    padding: 30px;
+    margin: 30px auto 0;
+    box-shadow: -2px 0 2px #666;
+    -moz-box-shadow: -2px 0 2px #666;
+    -webkit-box-shadow: -2px 0 2px #666;
+    -o-box-shadow: -2px 0 2px #666;
+    -ms-box-shadow: -2px 0 2px #666;
+}
+#content-wrapper .edit-wrapper {
+    border-top: 1px dotted #333;
+    border-bottom: 1px dotted #333;
+    /* width: 100%; */
+    padding: 19px 15px;
+}
+.edit-wrapper .day-wrapper {
+    float: left;
+    width: 15%;
+}
+.edit-wrapper .diary-edit-form {
+    background: #F2F2F2;
+    border-radius: 5px;
+    -moz-border-radius: 5px;
+    -webkit-border-radius: 5px;
+    -ms-border-radius: 5px;
+    -o-border-radius: 5px;
+    padding: 2% 13px;
+    float: left;
+    width: 81%;
+    color: #818181;
+}
+.edit-wrapper .diary-edit-form h4 {
+    font-family: 'Scada';
+    font-size: 23px;
+    margin: 0 0 0 15px;
+}
+.edit-wrapper .diary-edit-form a {
+    color: #818181;
+    text-decoration: none;
+}
+.edit-wrapper .diary-edit-form .btn-add {
+    display: inline-block;
+    font-size: 14px;
+    padding-top: 23px;
+    text-align: center;
+    width: 75px;
+}
+.edit-wrapper .diary-edit-form a.btn-save-diary {
+    border: 1px solid #7D7D7D;
+    font-size: 16px;
+    margin-right: 15px;
+    padding: 8px 13px;
+}
+.day-wrapper .day-item {
+    margin: 10px 0;
+}
+.day-wrapper .day-item a {
+    background: none repeat scroll 0 0 #C9C9C9;
+    color: #FFFFFF;
+    display: block;
+    font-family: 'Scada';
+    font-size: 22px;
+    font-weight: lighter;
+    padding: 2px 10px;
+    text-align: center;
+    text-decoration: none;
+    width: 56px;
+}
+
+.day-wrapper .day-item.active {
+    background: url('../images/tab.png') 100% 50% no-repeat transparent;
+}
+.diary-edit-form .diary-input-field {
+    border-style: none;
+    box-shadow: -1px 1px 1px #CCC;
+    -moz-box-shadow: -1px 1px 1px #CCC;
+    -webkit-box-shadow: -1px 1px 1px #CCC;
+    -o-box-shadow: -1px 1px 1px #CCC;
+    -ms-box-shadow: -1px 1px 1px #CCC;
+    font-family: 'Scada';
+    font-size: 17px;
+    padding: 6px 2%;
+    width: 96%;
+}
+.edit-diary-footer, .media-diary-header {
+    margin-top: 30px;
+    height: 250px;
+    background: url('../images/bg_diary.png') no-repeat center left;
+    background-size: 100%;
+    -moz-background-size: 100%;
+    -webkit-background-size: 100%;
+    -o-background-size: 100%;
+    -ms-background-size: 100%;
+    position: relative;
+}
+.media-diary-header.evenrow {
+    background: url('../images/bg_diary_even.png') no-repeat center left;
+    background-size: 100%;
+    -moz-background-size: 100%;
+    -webkit-background-size: 100%;
+    -o-background-size: 100%;
+    -ms-background-size: 100%;
+}
+.media-diary-header.photo {
+    background: url('../images/bg_diary_white.png') no-repeat center left;
+    background-size: 100%;
+    -moz-background-size: 100%;
+    -webkit-background-size: 100%;
+    -o-background-size: 100%;
+    -ms-background-size: 100%;
+    margin-top: 0;
+}
+.diary-footer {
+    font-family: 'Scada';
+}
+.diary-footer .title-pos {
+    position: absolute;
+    right: 3%;
+    bottom: 55%;
+    font-style: italic;
+    font-size: 25px;
+}
+.diary-footer.evenrow .title-pos {
+    right: auto;
+    left: 3%;
+}
+.diary-footer.photo .title-pos {
+    color: #fff;
+}
+.diary-footer .day-pos {
+    position: absolute;
+    text-align: right;
+    width: 15%;
+    margin-right: 1%;
+    left: 0;
+    bottom: 5%;
+    font-size: 28px;
+    color: #666;
+}
+.diary-footer.evenrow .day-pos {
+    left: 85%;
+    width: auto;
+    margin-right: none;
+    text-align: left;
+}
+.diary-footer.photo .day-pos {
+    color: #fff;
+}
+.diary-footer .place-pos {
+    position: absolute;
+    bottom: 5%;
+    left: 19%;
+    font-size: 28px;
+    color: #666;
+}
+.diary-footer.evenrow .place-pos {
+    width: 82%;
+    text-align: right;
+    margin-right: 1%;
+    left: 0;
+}
+.diary-footer.photo .place-pos {
+    color: #fff;
+}
+.media-diary-header {
+    margin-bottom: 15px;
+}
+.diary-content .text-content {
+    float: left;
+    width: 35%;
+}
+.diary-content.even .text-content {
+    float: right;
+}
+.diary-content .text-content p {
+    font-family: 'Scada';
+    font-size: 15px;
+    font-style: italic;
+    line-height: 20px;
+    text-align: justify;
+    margin-top: 0;
+}
+.diary-content .text-content span {
+    background: #D5D0D9;
+    display: block;
+    text-align: justify;
+    padding: 9px 13px;
+    font-style: italic;
+    color: #010001;
+}
+.diary-content .img-content {
+    float: right;
+    width: 60%;
+}
+.diary-content.even .img-content {
+    float: left;
+}
+
+/********* Media Pages Style ************/
+.media-wrapper ul {
+    padding: 0;
+}
+.media-wrapper li {
+    list-style: none;
+    width: 31.33%;
+    margin-right: 3%;
+    float: left;
+    margin-bottom: 13px;
+    position: relative;
+}
+.media-wrapper li img {
+    border: 5px solid #fff;
+    width: 100%;
+}
+.media-wrapper li:nth-child(3n) {
+    margin-right: 0;
+}
+
+/******** User Friend Page Style ***********/
+.search-wrapper {
+    margin: 30px auto;
+    width: 100%;
+    float: left;
+}
+.friend-wrapper {
+    float: left;
+    width: 45%;
+    padding-right: 4%;
+    border-right: 3px solid #fff;
+    height: 64%;
+    overflow: hidden;
+}
+.user-wrapper {
+    float: right;
+    width: 45%;
+    padding-left: 4%;
+    height: 64%;
+    overflow: hidden;
+}
+.search-wrapper h5, .friend-wrapper h5, .user-wrapper h5 {
+    color: #fff;
+    font-family: 'Scada';
+    font-size: 24px;
+    font-style: italic;
+    text-transform: uppercase;
+    padding: 0;
+    margin: 0 0 15px;
+}
+.search-wrapper h5 {
+    float: left;
+    width: 25%;
+    margin-left: 8%;
+    margin-bottom: 0;
+}
+.search-wrapper input.user-search-big {
+    background: url('../images/ico_magic.png') no-repeat center right transparent;
+    color: #fff;
+    padding: 9px 40px 9px 30px;
+    /*width: 50%;*/
+    font-size: 25px;
+    font-family: 'Scada';
+    border-style: none;
+    margin-left: 1%;
+    margin-top: 5px;
+    float: left;
+    margin-right: 10px;
+}
+.search-wrapper .search-body {
+    float: left;
+    background: url('../images/bg_search.png') no-repeat center top;
+    background-size: 100% 100%;
+}
+.friend-list {
+    overflow-y: auto;
+    height: 90%;
+}
+.friend-list ul {
+    margin: 0;
+    padding: 0;
+}
+.friend-list li {
+    list-style: none;
+    float: left;
+    margin-bottom: 25px;
+    width: 94%;
+    background: url('../images/bg_user.png') repeat left top;
+    padding: 8px 3%;
+}
+.friend-list li:last-child {
+    margin-bottom: 0;
+}
+.friend-list li .user-photo {
+    float: left;
+    width: 12%;
+    margin-right: 3%;
+}
+.friend-list li .user-photo img {
+    border-radius: 50%;
+    -moz-border-radius: 50%;
+    -webkit-border-radius: 50%;
+    -o-border-radius: 50%;
+    -ms-border-radius: 50%;
+    width: 100%;
+}
+.friend-list li .user-content {
+    float: left;
+    width: 59%;
+    color: #fff;
+    font-family: 'Lato';
+    margin-top: 2%;
+}
+.friend-list li .user-content p {
+    font-size: 20px;
+    font-weight: bold;
+    margin: 0;
+    padding: 0;
+}
+.friend-list li .user-content span {
+    font-size: 15px;
+    font-weight: normal;
+}
+.friend-list li .user-menu {
+    width: 25%;
+    float: right;
+    margin-top: 2%;
+}
+.friend-list li .user-menu a {
+    padding-top: 30px;
+    text-align: center;
+    color: #fff;
+    font-family: 'Lato';
+    font-size: 12px;
+    display: inline-block;
+    width: 36px;
+    height: 19px;
+    text-decoration: none;
+    background-size: 100%;
+    margin-left: 5%;
+}
+.scroll-top-wrapper {
+    position: absolute;
+    right: 2%;
+    width: 50px;
+    top: 200px;
+    z-index: 9999;
+}
+/******** Responsive Style **********/
+@media screen and ( max-width: 479px ) {
+    #header, #header.fixed-header, .blank-header { height: 60px; }
+    #header a { font-size: 12px; }
+    #logo { height: 50px; margin-top: 5px; margin-left: 10px; }
+    #header .login-menu { margin-top: 8px; margin-right: 15px; }
+    #footer .footer-text { font-size: 18px; }
+    #header .main-menu ul { margin-top: 10px; }
+    #header .main-menu li a { font-size: 12px; padding-top: 33px; width: 30px; }
+    #homepage-wrapper { overflow-y: auto; }
+    #home-content-wrapper { height: auto !important; float: none; }
+    #home-content-wrapper .book { width: 97%; float: none; }
+    #home-content-wrapper .home-start { width: 96%; margin: 20px auto !important; float: none; padding-top: 65px; }
+    #footer { float: none; }
+    #footer .footer-logo { margin-left: 2%; width: 15%; float: left; bottom: auto; left: auto; position: static; margin-top: 10px; }
+    #footer .footer-mark { width: 70%; float: right; position: relative; bottom: 9px; right: auto; margin-right: 3%; }
+    #footer .footer-mark img { float: right; }
+    #footer .footer-text { font-size: 15px; float: right; margin-top: 25px; margin-right: 3px; }
+    #main-content-wrapper .row2 .train, #main-content-wrapper .row3 .train { width: 90%; margin: 20px auto; }
+    .media-wrapper li { width: 96%; margin: 0 auto 15px; float: none; }
+    .diary-footer .title-pos { font-size: 15px; }
+    .diary-footer .day-pos { font-size: 16px; }
+    .diary-footer .place-pos { font-size: 16px; }
+    .diary-content .text-content { float: none; width: 100%; }
+    .diary-content .img-content { float: none; width: 100%; }
+    #home-content-wrapper { width: 96%; }
+    #main-content-wrapper { width: 96%; }
+    #content-wrapper { width: 96%; padding: 2%; }
+}

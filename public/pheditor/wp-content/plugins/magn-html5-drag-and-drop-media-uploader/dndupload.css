@@ -1,0 +1,190 @@
+
+
+#drop-box-overlay {
+	margin: 1px;
+	padding: 0;
+	top: 0;
+	left: 0;
+	width: 100%;
+	min-height: 100%;
+	position: fixed;
+	background-color: #222222;
+	display: none;
+	
+	z-index: 50;
+	opacity: 0.9;
+}
+
+#drop-box-overlay h1 {
+	padding: 3em !important;
+	top: 38%;
+	left: 35%;
+	position: absolute;
+	
+	border: 2px solid #679B00 !important;
+	background-color: #C9F76F !important;
+	-moz-border-radius: 4px 4px;
+	-webkit-border-radius: 4px 4px;
+	border-bottom-left-radius: 4px 4px;
+	border-bottom-right-radius: 4px 4px;
+	border-top-left-radius: 4px 4px;
+	border-top-right-radius: 4px 4px;
+	
+	color: #222222 !important;
+	font-size: 130% !important;
+	font-weight: normal;
+	text-shadow: 1px 1px 1px #FFFFFF !important;
+}
+
+#drop-box-jsupload
+{
+	background-color: white;
+	border: 4px dotted #efefef;
+	padding: 60px 80px;
+	display:block;
+	text-align:center;
+}
+
+#drop-box-jsupload:hover
+{
+	background-color: #fafafa;
+	border: 4px dotted #333333;
+}
+
+#drop-box-overlay-gmail-wrapper
+{
+	margin: 1px;
+	padding: 0;
+	top: 0;
+	left: 0;
+	width: 100%;
+	min-height: 100%;
+	position: fixed;
+	background-color: #222222;
+	display: none;
+	z-index: 50;
+	opacity: 0.9;
+}
+
+#drop-box-overlay-gmail
+{
+	z-index: 100 !important;  /* really important */
+	/*
+	border: 4px dashed #679B00 !important;
+	background-color: #C9F76F !important;
+	
+		background-color:inherit;
+		border: inherit;
+		*/
+}
+
+#drop-box-jsupload-gmail span
+{
+	display:block;
+	padding: 30px 80px;
+	font-size: 22px;
+	font-weight: normal;
+	text-align:center;
+}
+
+.dndmedia_thumb_div
+{
+	float:left;
+	margin-right: 10px;
+	margin-bottom: 10px;
+	padding: 5px;
+	background-color: white;
+	border: 1px solid #cccccc;
+	-moz-border-radius: 4px 4px;
+	-webkit-border-radius: 4px 4px;
+	border-radius: 4px 4px;
+}
+
+.dndmedia_thumb_div img
+{
+	border: 1px solid white;
+}
+
+.dndmedia_thumb_div:hover
+{
+	background-color:#999999;
+}
+
+.dndmedia_thumb_div label
+{
+	display:block;
+	text-align:center;
+}
+
+.dndmedia_more
+{
+	padding-top: 10px;
+}
+
+.dndmedia_bonus
+{
+	/*text-transform:uppercase;
+	font-weight: bold;
+	letter-spacing: -1px;
+	color: #0000ff;*/
+	text-indent: -9999px;
+	background: transparent url(images/bonus.png) no-repeat center -2px;
+	width: 87px;
+	height: 15px;
+	
+	line-height: 20px;
+	width: 120px; float:left;height: 20px;
+}
+
+#drop-box-overlay-gmail.dndmedia_hover
+{
+	border: 4px dashed #000000;
+}
+
+.qq-upload-drop-area
+{
+	border: 4px dashed #679B00;
+	background-color: #C9F76F;
+}
+
+.qq-upload-drop-area-active
+{
+	border: 4px dashed #000000 !important;
+}
+
+
+#wpwrap.dndmedia_hover
+{
+	background-color: #333333 !important;
+}
+
+#dndmedia_meta_box h2
+{
+	/*padding-left: 50px;
+	background: url(images/dndmediaiconbig.png) no-repeat;
+	line-height: 50px;
+	*/
+}
+
+/* Progressbar
+----------------------------------*/
+.ui-progressbar { height:2em; text-align: left; }
+.ui-progressbar .ui-progressbar-value {margin: -1px; height:100%; }
+
+
+.dndmedia_file_row label
+{
+	padding: 4px 0px;
+}
+.dndmedia-link
+{
+
+	display:inline;
+	border:1px solid #444;
+	line-height: 20px;
+
+	text-indent:-9999px;
+	padding: 2px 4px;
+}
+
+
